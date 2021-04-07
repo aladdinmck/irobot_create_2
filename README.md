@@ -24,16 +24,16 @@ If you're on headless you can switch to the GUI using ```CTRL-ALT-F1```
 If you're on GUI you can switch to headless using ```CTRL-ALT-F2```
 
 After connecting the RPi to the internet you can enable ssh using openssh.
-    ``` 
-    $ sudo apt update 
+     
+    $ sudo apt update
     $ sudo apt install openssh-server
     $ sudo systemctl status ssh 
-    ```
+    
 
 If the firewall is enabled you may need to enable the SSH port:
-    ``` 
+    
     $ sudo ufw allow ssh 
-    ```  
+    
 
 Melodic Installation instructions can be found [here](http://wiki.ros.org/melodic/Installation/Ubuntu).
 

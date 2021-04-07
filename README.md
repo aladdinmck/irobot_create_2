@@ -1,11 +1,11 @@
-# iRobot Create 2 Roomba Setup
+## iRobot Create 2 Roomba Setup
 
-## Prerequisites
-### Software
+### Prerequisites
+#### Software
 - ROS Melodic
 - Ubuntu 18.04 (Headless) with GUI (optional)
 
-### Hardware
+#### Hardware
 - iRobot Create 2
 - iRobot DIN to USB Cable
 - Ethernet Cord
@@ -14,7 +14,7 @@
 - Raspberry Pi Model 3 B+
 - Raspberry Pi Camera
 
-## Installing Ubuntu and ROS
+### Installing Ubuntu and ROS
 
 Ubuntu 18.04 headless can be found [here](https://ubuntu.com/tutorials/how-to-install-ubuntu-on-your-raspberry-pi#1-overview).
 
@@ -24,22 +24,22 @@ If you're on headless you can switch to the GUI using ```CTRL-ALT-F1```
 If you're on GUI you can switch to headless using ```CTRL-ALT-F2```
 
 After connecting the RPi to the internet you can enable ssh using openssh.
-``` $ sudo apt update ```
-``` $ sudo apt update ```
-``` $ sudo apt install openssh-server ```
-``` $ sudo systemctl status ssh ```
+    ``` 
+    $ sudo apt update 
+    $ sudo apt install openssh-server
+    $ sudo systemctl status ssh 
+    ```
 
 If the firewall is enabled you may need to enable the SSH port:
-
-``` $ sudo ufw allow ssh ```  
+    ``` 
+    $ sudo ufw allow ssh 
+    ```  
 
 Melodic Installation instructions can be found [here](http://wiki.ros.org/melodic/Installation/Ubuntu).
 
 The ROS-Base (Bare Bones) option was selected for this project because of it's lightweight performance and we won't require any use of GUI tools. 
 
-To insure that the create robot is funtional with ROS follow this tutorial [here](https://github.com/AutonomyLab/create_robot).
-
-
+To insure that the create robot is funtional with ROS follow this tutorial [here](https://github.com/AutonomyLab/create_robot). However, when attempting to use the command ```catkin build``` make sure to use the ```-j2``` or ```-j1``` options. This will lighten the load on the Pi's processor. More specifically it will reduce the thread count to 2 or 1 respectively. The RaspberryPi will use 4 threads by default and you may exxperience lock-ups during compilation. 
 
 
 

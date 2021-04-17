@@ -8,7 +8,10 @@ project(irobot_create_rpi)
 ## if COMPONENTS list like find_package(catkin REQUIRED COMPONENTS xyz)
 ## is used, also find other catkin packages
 find_package(catkin REQUIRED COMPONENTS
-  create_robot
+  create_bringup 
+  create_description
+  create_driver
+  create_msgs
   roscpp
   rospy
   std_msgs

@@ -1,6 +1,8 @@
 #!/usr/bin/env python
 
+import subprocess
 import rospy
+import time
 from nav_msgs.msg import Odometry
 from tf.transformations import euler_from_quaternion
 from geometry_msgs.msg import Point, Twist
@@ -34,7 +36,12 @@ goal = Point()
 goal.x = 5
 goal.y = 5
 
-count = 3
+count = 5
+i = 1
+fileName = "pic" + str(i) + ".jpg"
+subprocess.call("fswebcam -d /dev/video0 -r 1024x768 -S0 "+fileName,shell=True) 
+time.sleep(3)
+print('PIC CAPTURED')
 
 while not rospy.is_shutdown():
     inc_x = goal.x -x
@@ -49,6 +56,19 @@ while not rospy.is_shutdown():
         speed.linear.x = 0.5
         speed.angular.z = 0.0
 
+    print('count: ' + str(count))
+    print('i: ' + str(i))
+    print('count % 2: ' + str(count % 2))
+    
+    if i == 1 or i == 3 or i == 5::
+        fileName = "pic" + str(i) + ".jpg"
+        subprocess.call("fswebcam -d /dev/video0 -r 1024x768 -S0 "+fileName,shell=True) 
+        time.sleep(3)
+        print('PIC CAPTURED')
+
+    i =+ 1
+    count =- 1
+    time.sleep(3);    
     pub.publish(speed)
     r.sleep()
 

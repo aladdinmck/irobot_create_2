@@ -18,6 +18,7 @@ find_package(catkin REQUIRED COMPONENTS
   actionlib
   usb_cam
   move_base_msgs
+  image_view 
 )
 
 ## System dependencies are found with CMake's conventions
